@@ -32,17 +32,17 @@ This repository documents a complete **air-gapped (disconnected) OpenShift Conta
 │  ┌────────────────────────────────────────────────────────────────────┐  │
 │  │                     Gym Member Resource Pool                       │  │
 │  │                                                                    │  │
-│  │   ┌─────────────────────┐       ┌─────────────────────────────┐   │  │
-│  │   │    Bastion Host     │       │     OpenShift Cluster       │   │  │
-│  │   │    192.168.252.2    │       │     (IPI Provisioned)       │   │  │
-│  │   │                     │       │                             │   │  │
-│  │   │  • Quay Registry    │       │  • 3x Control Plane Nodes   │   │  │
-│  │   │    (port 8443)      │◄─────►│  • 3x Worker Nodes          │   │  │
-│  │   │  • HTTP Server      │       │  • Router VM                │   │  │
-│  │   │    (RHCOS OVA)      │       │                             │   │  │
-│  │   │  • oc-mirror        │       │  Domain: ocpinstall.gym.lan │   │  │
-│  │   │  • Install Tools    │       │                             │   │  │
-│  │   └─────────────────────┘       └─────────────────────────────┘   │  │
+│  │   ┌─────────────────────┐       ┌─────────────────────────────┐    │  │
+│  │   │    Bastion Host     │       │     OpenShift Cluster       │    │  │
+│  │   │    192.168.252.2    │       │     (IPI Provisioned)       │    │  │
+│  │   │                     │       │                             │    │  │
+│  │   │  • Quay Registry    │       │  • 3x Control Plane Nodes   │    │  │
+│  │   │    (port 8443)      │◄─────►│  • 3x Worker Nodes          │    │  │
+│  │   │  • HTTP Server      │       │  • Router VM                │    │  │
+│  │   │    (RHCOS OVA)      │       │                             │    │  │
+│  │   │  • oc-mirror        │       │  Domain: ocpinstall.gym.lan │    │  │
+│  │   │  • Install Tools    │       │                             │    │  │
+│  │   └─────────────────────┘       └─────────────────────────────┘    │  │
 │  │                                                                    │  │
 │  └────────────────────────────────────────────────────────────────────┘  │
 └──────────────────────────────────────────────────────────────────────────┘
@@ -208,8 +208,6 @@ oc get packagemanifests -n openshift-marketplace
 ## 📚 References
 
 - [OpenShift Disconnected Installation Documentation](https://docs.openshift.com/container-platform/4.18/installing/disconnected_install/index.html)
-- [Mirror Registry for Red Hat OpenShift](https://docs.openshift.com/container-platform/4.18/installing/disconnected_install/installing-mirroring-installation-images.html)
-- [oc-mirror Plugin Documentation](https://docs.openshift.com/container-platform/4.18/installing/disconnected_install/installing-mirroring-disconnected.html)
 
 ---
 
