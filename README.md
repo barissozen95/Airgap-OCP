@@ -118,9 +118,9 @@ The following operators have been mirrored and are available in the disconnected
 ## 📁 Repository Structure
 
 ```
-├── README.md                          # This file - Executive summary
-├── TECHNICAL_WORKFLOW.md              # Detailed step-by-step guide
-├── SCRIPTS_CODEBOOK.md                # All scripts and commands
+├── readme.md                          # This file - Executive summary
+├── technical-workflow.md              # Detailed step-by-step guide
+├── scripts-codebook.md                # All scripts and commands
 ├── configs/
 │   └── isc-platform-4.18.yaml         # ImageSetConfiguration for mirroring
 └── images/
@@ -172,8 +172,8 @@ The following operators have been mirrored and are available in the disconnected
    openshift-install create cluster --dir ocpinstall --log-level debug
    ```
 
-> 📖 **For detailed instructions, see [TECHNICAL_WORKFLOW.md](TECHNICAL_WORKFLOW.md)**
-> 📜 **For all scripts, see [SCRIPTS_CODEBOOK.md](SCRIPTS_CODEBOOK.md)**
+> 📖 **For detailed instructions, see [technical-workflow.md](technical-workflow.md)**
+> 📜 **For all scripts, see [scripts-codebook.md](scripts-codebook.md)**
 
 ---
 
