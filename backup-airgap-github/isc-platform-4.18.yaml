@@ -1,0 +1,105 @@
+# isc-platform-4.18.yaml
+# ImageSetConfiguration for Air-Gapped OpenShift 4.18
+# 
+# This configuration mirrors:
+# - OpenShift 4.18 platform images (stable channel)
+# - OpenShift Data Foundation (ODF) operators
+# - OpenShift AI (RHODS) operator
+# - NVIDIA GPU operator (Certified catalog)
+# - Supporting operators (NFD, Local Storage, Cert Manager)
+#
+# Usage:
+#   # Mirror to local disk
+#   oc-mirror --config=isc-platform-4.18.yaml file://ocp-4.18 --v1
+#
+#   # Push to mirror registry
+#   oc-mirror --from=ocp-4.18/mirror_seq1_000000.tar docker://registry:8443 --v1 --dest-skip-tls
+
+kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v1alpha2
+storageConfig:
+  local:
+    path: ./
+mirror:
+  platform:
+    channels:
+    - name: stable-4.18
+      type: ocp
+      # Note: Avoid using minVersion to prevent graph calculation errors
+      # minVersion: 4.18.0  # Commented out - causes issues
+    graph: true
+
+  operators:
+  # =========================================================================
+  # CATALOG 1: RED HAT OPERATORS (v4.18)
+  # Source: registry.redhat.io/redhat/redhat-operator-index:v4.18
+  # =========================================================================
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.18
+    packages:
+    
+    # -----------------------------------------------------------------------
+    # OpenShift Data Foundation (ODF) - Software Defined Storage
+    # Required for persistent storage in disconnected environments
+    # -----------------------------------------------------------------------
+    - name: odf-operator
+      channels:
+      - name: stable-4.18
+    
+    - name: ocs-operator
+      channels:
+      - name: stable-4.18
+    
+    - name: odf-csi-addons-operator
+      channels:
+      - name: stable-4.18
+    
+    - name: mcg-operator
+      channels:
+      - name: stable-4.18
+    
+    # -----------------------------------------------------------------------
+    # Certificate Manager
+    # Required for automated certificate management
+    # -----------------------------------------------------------------------
+    - name: openshift-cert-manager-operator
+      channels:
+      - name: stable-v1
+    
+    # -----------------------------------------------------------------------
+    # Local Storage Operator
+    # Required for ODF and local disk provisioning
+    # -----------------------------------------------------------------------
+    - name: local-storage-operator
+      channels:
+      - name: stable
+    
+    # -----------------------------------------------------------------------
+    # Node Feature Discovery (NFD)
+    # Required for GPU operator and hardware feature detection
+    # -----------------------------------------------------------------------
+    - name: nfd
+      channels:
+      - name: stable
+    
+    # -----------------------------------------------------------------------
+    # OpenShift AI (formerly RHODS)
+    # Red Hat's AI/ML platform
+    # -----------------------------------------------------------------------
+    - name: rhods-operator
+      channels:
+      - name: stable
+
+  # =========================================================================
+  # CATALOG 2: CERTIFIED OPERATORS (v4.18)
+  # Source: registry.redhat.io/redhat/certified-operator-index:v4.18
+  # =========================================================================
+  - catalog: registry.redhat.io/redhat/certified-operator-index:v4.18
+    packages:
+    
+    # -----------------------------------------------------------------------
+    # NVIDIA GPU Operator
+    # Required for GPU workloads and AI/ML acceleration
+    # -----------------------------------------------------------------------
+    - name: gpu-operator-certified
+      channels:
+      - name: v25.10
