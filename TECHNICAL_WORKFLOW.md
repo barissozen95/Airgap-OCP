@@ -99,7 +99,7 @@ lsblk
 
 ### 2.4 Expand Storage with LVM
 
-![Storage Expansion Process](images/storage-expansion.png)
+![Storage Expansion Process](images/lvm-storage-expansion.png)
 
 *Figure 4: Complete LVM expansion process - extending the root filesystem from 43.4GB to 1.51TB*
 
@@ -174,7 +174,7 @@ tar xf mirror-registry.tar.gz
 
 ### 3.3 Install Mirror Registry
 
-![Quay Installation Process](images/quay-installation.png)
+![Quay Installation Process](images/quay-install-progress.png)
 
 *Figure 5: Mirror Registry (Quay) installation process showing execution environment loading and component deployment*
 
@@ -196,7 +196,7 @@ tar xf mirror-registry.tar.gz
 
 ### 3.4 Verify Successful Installation
 
-![Quay Installation Success](images/quay-success.png)
+![Quay Installation Success](images/quay-install-success.png)
 
 *Figure 6: Successful Quay installation - Play recap showing ok=42, changed=24, failed=0*
 
@@ -258,7 +258,7 @@ sudo firewall-cmd --reload
 
 ### 4.2 Download RHCOS OVA
 
-![RHCOS OVA Download](images/rhcos-download.png)
+![RHCOS OVA Download](images/rhcos-ova-download.png)
 
 *Figure 7: Downloading RHCOS 4.18 VMware OVA (1346MB) and setting up Apache web server*
 
@@ -620,7 +620,7 @@ oc apply -f ${HOME}/oc-mirror-workspace/results-*/release-signatures/
 
 ### 10.4 Verify OperatorHub
 
-![OperatorHub with Mirrored Operators](images/operatorhub.png)
+![OperatorHub with Mirrored Operators](images/operatorhub-mirrored.png)
 
 *Figure 8: OpenShift OperatorHub showing 5 available operators from the mirrored catalog - cert-manager, Local Storage, NFD, ODF, and OpenShift AI*
 
