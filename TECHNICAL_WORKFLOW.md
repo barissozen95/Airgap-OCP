@@ -26,9 +26,13 @@
 
 The deployment uses a VMware vSphere environment with the following resource pool structure:
 
-![vSphere Resource Pool Structure](images/vsphere-resource-pool.png)
-
-*Figure 1: vSphere resource pool hierarchy showing the Gym Member Resource Pool containing the bastion and router VMs*
+```
+Cluster Resource Pool
+└── Gym Member Resource Pool
+    └── 695965ff2718a81d4bf737f9
+        ├── 695965ff2718a81d4bf737f9-bastion   (Bastion Host VM)
+        └── 695965ff2718a81d4bf737f9-router    (Network Router VM)
+```
 
 The hierarchy consists of:
 - **Cluster Resource Pool** (top-level)
@@ -43,7 +47,7 @@ Before starting, obtain your pull secret from the Red Hat Hybrid Cloud Console:
 
 ![Red Hat Pull Secret Download](images/pull-secret.png)
 
-*Figure 2: Red Hat Hybrid Cloud Console - Download your pull secret from console.redhat.com/openshift/install/pull-secret*
+*Figure 1: Red Hat Hybrid Cloud Console - Download your pull secret from console.redhat.com/openshift/install/pull-secret*
 
 **Steps to obtain pull secret:**
 1. Navigate to [console.redhat.com/openshift/install/pull-secret](https://console.redhat.com/openshift/install/pull-secret)
@@ -80,7 +84,7 @@ lsblk
 
 ![Initial Disk Layout](images/lsblk-output.png)
 
-*Figure 3: Initial disk layout showing sda (50GB OS disk) and sdb (1.5TB new disk)*
+*Figure 2: Initial disk layout showing sda (50GB OS disk) and sdb (1.5TB new disk)*
 
 **Output interpretation:**
 - `sda` (50GB) - Operating system disk with boot partitions and LVM
@@ -101,7 +105,7 @@ lsblk
 
 ![Storage Expansion Process](images/lvm-storage-expansion.png)
 
-*Figure 4: Complete LVM expansion process - extending the root filesystem from 43.4GB to 1.51TB*
+*Figure 3: Complete LVM expansion process - extending the root filesystem from 43.4GB to 1.51TB*
 
 **Step-by-step storage expansion:**
 
@@ -176,7 +180,7 @@ tar xf mirror-registry.tar.gz
 
 ![Quay Installation Process](images/quay-install-progress.png)
 
-*Figure 5: Mirror Registry (Quay) installation process showing execution environment loading and component deployment*
+*Figure 4: Mirror Registry (Quay) installation process showing execution environment loading and component deployment*
 
 ```bash
 ./mirror-registry install \
@@ -198,7 +202,7 @@ tar xf mirror-registry.tar.gz
 
 ![Quay Installation Success](images/quay-install-success.png)
 
-*Figure 6: Successful Quay installation - Play recap showing ok=42, changed=24, failed=0*
+*Figure 5: Successful Quay installation - Play recap showing ok=42, changed=24, failed=0*
 
 **Verification output indicates:**
 - Quay installed at `https://192.168.252.2:8443`
@@ -260,7 +264,7 @@ sudo firewall-cmd --reload
 
 ![RHCOS OVA Download](images/rhcos-ova-download.png)
 
-*Figure 7: Downloading RHCOS 4.18 VMware OVA (1346MB) and setting up Apache web server*
+*Figure 6: Downloading RHCOS 4.18 VMware OVA (1346MB) and setting up Apache web server*
 
 ```bash
 # Set version
@@ -622,7 +626,7 @@ oc apply -f ${HOME}/oc-mirror-workspace/results-*/release-signatures/
 
 ![OperatorHub with Mirrored Operators](images/operatorhub-mirrored.png)
 
-*Figure 8: OpenShift OperatorHub showing 5 available operators from the mirrored catalog - cert-manager, Local Storage, NFD, ODF, and OpenShift AI*
+*Figure 7: OpenShift OperatorHub showing 5 available operators from the mirrored catalog - cert-manager, Local Storage, NFD, ODF, and OpenShift AI*
 
 ```bash
 # Check catalog source pods
