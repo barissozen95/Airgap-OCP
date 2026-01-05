@@ -118,19 +118,19 @@ The following operators have been mirrored and are available in the disconnected
 ## 📁 Repository Structure
 
 ```
-├── README.md                    # This file - Executive summary
-├── TECHNICAL_WORKFLOW.md        # Detailed step-by-step guide
-├── SCRIPTS_CODEBOOK.md          # All scripts and commands
+├── README.md                          # This file - Executive summary
+├── TECHNICAL_WORKFLOW.md              # Detailed step-by-step guide
+├── SCRIPTS_CODEBOOK.md                # All scripts and commands
 ├── configs/
-│   └── isc-platform-4.18.yaml   # ImageSetConfiguration for mirroring
-└── images/                      # Screenshots and diagrams
-    ├── vsphere-resource-pool.png
-    ├── storage-expansion.png
-    ├── quay-installation.png
-    ├── quay-success.png
-    ├── rhcos-download.png
-    ├── pull-secret.png
-    └── operatorhub.png
+│   └── isc-platform-4.18.yaml         # ImageSetConfiguration for mirroring
+└── images/
+    ├── lsblk-output.png               # Initial disk layout
+    ├── lvm-storage-expansion.png      # LVM expansion process
+    ├── operatorhub-mirrored.png       # OperatorHub with mirrored operators
+    ├── pull-secret.png                # Red Hat pull secret page
+    ├── quay-install-progress.png      # Quay installation in progress
+    ├── quay-install-success.png       # Quay installation completed
+    └── rhcos-ova-download.png         # RHCOS OVA download
 ```
 
 ---
